@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".CadastroFragment">
 
-    <!-- Campo de Nome -->
+
     <EditText
         android:id="@+id/nomeEditText"
         android:layout_width="0dp"
@@ -22,7 +22,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Campo de Email -->
+
     <EditText
         android:id="@+id/cadastroEmailEditText"
         android:layout_width="0dp"
@@ -38,7 +38,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp" />
 
-    <!-- Botão Confirmar Cadastro -->
+
     <EditText
         android:id="@+id/cadastroCpfEditText"
         android:layout_width="0dp"

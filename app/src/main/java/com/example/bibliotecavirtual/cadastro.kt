@@ -9,19 +9,14 @@ import com.example.bibliotecavirtual.databinding.FragmentCadastroBinding
 
 class CadastroFragment : Fragment() {
 
-    private var _binding: FragmentCadastroBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentCadastroBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentCadastroBinding.inflate(inflater, container, false)
+        // Inflate o layout para este fragmento usando ViewBinding
+        binding = FragmentCadastroBinding.inflate(inflater, container, false)
         return binding.root
-    }
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
     }
 }
