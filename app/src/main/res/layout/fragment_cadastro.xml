@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CadastroFragment">
+
+    <!-- Campo de Nome -->
+    <EditText
+        android:id="@+id/nomeEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:hint="Digite seu nome"
+        android:inputType="textPersonName"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Campo de Email -->
+    <EditText
+        android:id="@+id/cadastroEmailEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:hint="Digite seu email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintTop_toBottomOf="@id/nomeEditText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp" />
+
+    <!-- Botão Confirmar Cadastro -->
+    <EditText
+        android:id="@+id/cadastroCpfEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:hint="Digite seu cpf"
+        android:inputType="number"
+        android:maxLength="11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nomeEditText" />
+
+    <EditText
+        android:id="@+id/cadastroCelularEditText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="144dp"
+        android:layout_marginEnd="16dp"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:hint="Digite seu celular"
+        android:inputType="phone"
+        android:maxLength="15"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/nomeEditText" />
+
+    <Button
+        android:id="@+id/CadastrarButton"
+        android:layout_width="190dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="368dp"
+        android:layout_marginEnd="16dp"
+        android:text="Confirmar Cadastro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cadastroEmailEditText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
