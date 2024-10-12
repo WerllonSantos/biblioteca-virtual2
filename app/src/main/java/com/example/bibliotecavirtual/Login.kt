@@ -2,10 +2,8 @@ package com.example.bibliotecavirtual
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bibliotecavirtual.databinding.ActivityLoginBinding
-import androidx.fragment.app.Fragment
 
 class LoginActivity : AppCompatActivity() {
 
@@ -17,28 +15,17 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Configuração do botão de login
         binding.loginButton.setOnClickListener {
-
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
 
+        // Configuração do botão de cadastro
         binding.cadastrarButton.setOnClickListener {
-            openCadastroFragment()
+            // Inicia a ActivityCadastro
+            val intent = Intent(this, ActivityCadastro::class.java)
+            startActivity(intent) // Chama a ActivityCadastro
         }
-
-
-        binding.fragmentContainerCadastro.visibility = View.GONE
-    }
-
-
-    private fun openCadastroFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragmentContainerCadastro, CadastroFragment())
-            .addToBackStack(null)
-            .commit()
-
-
-        binding.fragmentContainerCadastro.visibility = View.VISIBLE
     }
 }

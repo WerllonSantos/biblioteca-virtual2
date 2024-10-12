@@ -13,6 +13,10 @@
         android:theme="@style/Theme.BibliotecaVirtual"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityCadastro"
+            android:exported="true"
+            android:theme="@style/Theme.BibliotecaVirtual" />
+        <activity
             android:name=".Home"
             android:exported="false"
             android:theme="@style/Theme.BibliotecaVirtual" />
@@ -30,10 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Home"
-            android:exported="false"
-            android:theme="@style/Theme.BibliotecaVirtual" />
         <activity
             android:name=".MainActivity"
             android:exported="false"
