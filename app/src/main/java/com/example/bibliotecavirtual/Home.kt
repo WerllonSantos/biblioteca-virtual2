@@ -16,7 +16,6 @@ class Home : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.navigation_perfil -> {
-                    // Inicia a Activity de perfil
                     val intent =
                         Intent(
                             this@Home,
