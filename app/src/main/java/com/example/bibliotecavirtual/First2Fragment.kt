@@ -6,14 +6,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import com.example.bibliotecavirtual.databinding.FragmentSecond3Binding
+import com.example.bibliotecavirtual.databinding.FragmentFirst2Binding
 
 /**
- * A simple [Fragment] subclass as the second destination in the navigation.
+ * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class Second3Fragment : Fragment() {
+class First2Fragment : Fragment() {
 
-    private var _binding: FragmentSecond3Binding? = null
+    private var _binding: FragmentFirst2Binding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,7 +24,7 @@ class Second3Fragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentSecond3Binding.inflate(inflater, container, false)
+        _binding = FragmentFirst2Binding.inflate(inflater, container, false)
         return binding.root
 
     }
@@ -32,8 +32,8 @@ class Second3Fragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_Second3Fragment_to_FirstFragment)
+        binding.buttonFirst.setOnClickListener {
+            findNavController().navigate(R.id.action_First2Fragment_to_Second2Fragment)
         }
     }
 

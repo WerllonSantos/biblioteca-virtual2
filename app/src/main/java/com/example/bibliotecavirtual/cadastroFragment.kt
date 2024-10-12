@@ -15,7 +15,7 @@ class CadastroFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate o layout para este fragmento usando ViewBinding
+
         binding = FragmentCadastroBinding.inflate(inflater, container, false)
         return binding.root
     }
