@@ -14,6 +14,6 @@ class ActivityCadastro : AppCompatActivity() {
         binding = ActivityCadastroBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
+        // Aqui você pode adicionar lógica para o cadastro, se necessário
     }
 }

@@ -19,7 +19,7 @@ class Home : AppCompatActivity() {
                     val intent =
                         Intent(
                             this@Home,
-                            Perfil::class.java
+                            PerfilActivity::class.java
                         )
                     startActivity(intent)
                     return@setOnNavigationItemSelectedListener true
