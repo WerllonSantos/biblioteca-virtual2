@@ -19,35 +19,35 @@ class PerfilActivity : AppCompatActivity() {
         _binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configura o botão para abrir a câmera
+
         binding.btnfoto.setOnClickListener {
             dispatchTakePictureIntent()
         }
     }
 
-    // Método para abrir a câmera
+
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-            // Verifica se existe uma atividade que pode lidar com a intenção
+
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
     }
 
-    // Lida com o resultado da captura de imagem
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            // Obtém a imagem capturada
+
             val imageBitmap = data?.extras?.get("data") as Bitmap
-            // Exibe a imagem na ImageView
+
             binding.perfilImage.setImageBitmap(imageBitmap)
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        _binding = null // Limpa o binding
+        _binding = null
     }
 }

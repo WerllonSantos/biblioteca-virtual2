@@ -15,15 +15,15 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Configuração do botão de login
+
         binding.loginButton.setOnClickListener {
             val intent = Intent(this, Home::class.java)
             startActivity(intent)
         }
 
-        // Configuração do botão de cadastro
+
         binding.cadastrarButton.setOnClickListener {
-            // Inicia a ActivityCadastro
+
             val intent = Intent(this, ActivityCadastro::class.java)
             startActivity(intent) // Chama a ActivityCadastro
         }
