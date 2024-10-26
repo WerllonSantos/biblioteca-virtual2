@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.Firebase
+import com.google.firebase.database.database
 
 class Home : AppCompatActivity() {
 
@@ -29,13 +31,16 @@ class Home : AppCompatActivity() {
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
+
         bottomNavigationView.setOnNavigationItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.navigation_perfil -> {
+
                     val intent = Intent(this@Home, PerfilActivity::class.java)
                     startActivity(intent)
                     true
                 }
+
                 else -> false
             }
         }
