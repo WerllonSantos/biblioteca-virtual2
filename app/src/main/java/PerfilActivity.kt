@@ -6,82 +6,75 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bibliotecavirtual.databinding.ActivityPerfilBinding
-import com.google.firebase.Firebase
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
-import com.google.firebase.database.database
-import com.google.firebase.database.getValue
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 
 class PerfilActivity : AppCompatActivity() {
 
     private var _binding: ActivityPerfilBinding? = null
     private val binding get() = _binding!!
     private val REQUEST_IMAGE_CAPTURE = 171089
+    private val db = FirebaseFirestore.getInstance() // Inicializa o Firestore
+    private val userId = "usuarioID1" // Substitua pelo ID do usuário atual
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         _binding = ActivityPerfilBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Chama a função para mostrar os dados do usuário
+        mostrarDadosUsuario()
 
         binding.btnfoto.setOnClickListener {
             dispatchTakePictureIntent()
         }
 
-        binding.buttonSave.setOnClickListener{
-            // Write a message to the database
-            val database = Firebase.database
-            val myRef = database.getReference("message")
-
-            myRef.setValue("Dados editados com sucesso")
-
-
-
-
-            // Read from the database
-            myRef.addValueEventListener(object: ValueEventListener {
-
-                override fun onDataChange(snapshot: DataSnapshot) {
-                    // This method is called once with the initial value and again
-                    // whenever data at this location is updated.
-                    val value = snapshot.getValue<String>()
-                    Log.d(TAG, "Value is: " + value)
+        binding.buttonSave.setOnClickListener {
+            // Salva uma mensagem no Firestore
+            db.collection("message").document("status")
+                .set(mapOf("status" to "Dados editados com sucesso"))
+                .addOnSuccessListener {
+                    Toast.makeText(this, "Dados salvos com sucesso", Toast.LENGTH_SHORT).show()
                 }
-
-                override fun onCancelled(error: DatabaseError) {
-                    Log.w(TAG, "Failed to read value.", error.toException())
+                .addOnFailureListener { e ->
+                    Log.w("PerfilActivity", "Failed to save data.", e)
                 }
-
-            })
-
-
-
-            //delete
-            myRef.removeValue()
         }
     }
 
+    // Função para mostrar os dados do usuário
+    private fun mostrarDadosUsuario() {
+
+        db.collection("users")
+            .get()
+            .addOnSuccessListener { result ->
+
+                for (document in result) {
+
+                    Log.d(TAG, "${document.id} => ${document.data}")
+                }
+            }
+            .addOnFailureListener { exception ->
+                Log.w("PerfilActivity", "Error getting documents: ", exception)
+                Toast.makeText(this, "Falha ao recuperar dados do usuário", Toast.LENGTH_SHORT).show()
+            }
+    }
 
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
-
             takePictureIntent.resolveActivity(packageManager)?.also {
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
             }
         }
     }
 
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-
             val imageBitmap = data?.extras?.get("data") as Bitmap
-
             binding.perfilImage.setImageBitmap(imageBitmap)
         }
     }
