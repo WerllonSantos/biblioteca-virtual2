@@ -8,6 +8,7 @@
     android:padding="16dp"
     tools:context=".ActivityCadastro">
 
+    <!-- Título da tela -->
     <TextView
         android:id="@+id/tituloCadastro"
         android:layout_width="wrap_content"
@@ -20,6 +21,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="32dp"/>
 
+    <!-- Campo de nome -->
     <EditText
         android:id="@+id/nomeEditText"
         android:layout_width="0dp"
@@ -30,10 +32,10 @@
         android:minHeight="48dp"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tituloCadastro" />
 
+    <!-- Campo de email -->
     <EditText
         android:id="@+id/cadastroEmailEditText"
         android:layout_width="0dp"
@@ -46,6 +48,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Campo de CPF -->
     <EditText
         android:id="@+id/cadastroCpfEditText"
         android:layout_width="0dp"
@@ -59,6 +62,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Campo de celular -->
     <EditText
         android:id="@+id/cadastroCelularEditText"
         android:layout_width="0dp"
@@ -72,6 +76,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Campo de senha -->
     <EditText
         android:id="@+id/cadastroSenhaEditText"
         android:layout_width="0dp"
@@ -84,15 +89,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <!-- Botão de cadastro -->
     <Button
         android:id="@+id/CadastrarButton"
         android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginTop="236dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#f47c74"
         android:text="Confirmar Cadastro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cadastroSenhaEditText" />
 

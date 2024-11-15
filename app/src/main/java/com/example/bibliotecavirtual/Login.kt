@@ -23,15 +23,14 @@ class LoginActivity : AppCompatActivity() {
         // Inicializando o FirebaseAuth
         auth = FirebaseAuth.getInstance()
 
-
+        // Verifica se já há um usuário logado
         val currentUser = auth.currentUser
         updateUI(currentUser)
 
-
+        // Configura o botão de login
         binding.loginButton.setOnClickListener {
             val email = binding.emailEditText.text.toString()
             val senha = binding.senhaEditText.text.toString()
-
 
             if (email.isNotEmpty() && senha.isNotEmpty()) {
                 loginUser(email, senha)
@@ -40,29 +39,27 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
-
+        // Configura o botão de cadastro
         binding.cadastrarButton.setOnClickListener {
             val intent = Intent(this, ActivityCadastro::class.java)
             startActivity(intent)
         }
     }
 
-
+    // Função para realizar o login do usuário
     private fun loginUser(email: String, senha: String) {
         auth.signInWithEmailAndPassword(email, senha)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-
                     val user = auth.currentUser
-//                    updateUI(user)
+                    updateUI(user)
                 } else {
-
                     Toast.makeText(this, "Falha ao fazer login: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
     }
 
-
+    // Atualiza a UI dependendo do estado de login do usuário
     private fun updateUI(user: FirebaseUser?) {
         if (user != null) {
             // Se o usuário estiver logado, redireciona para a tela principal (Home)
@@ -76,6 +73,6 @@ class LoginActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser
-//        updateUI(currentUser)
+        updateUI(currentUser)
     }
 }
