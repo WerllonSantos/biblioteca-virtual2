@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "873031791527",
+    "firebase_url": "https://bibliotecavirtual-cc3eb-default-rtdb.firebaseio.com",
+    "project_id": "bibliotecavirtual-cc3eb",
+    "storage_bucket": "bibliotecavirtual-cc3eb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873031791527:android:c2800d0b55d02e1e57fc82",
+        "android_client_info": {
+          "package_name": "com.example.bibliotecavirtual"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfRJW2PxFwdEYB2MooFyqCw7-aVGmvK7Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

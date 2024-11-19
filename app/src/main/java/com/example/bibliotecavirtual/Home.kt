@@ -13,8 +13,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.firebase.Firebase
-import com.google.firebase.database.database
 
 class Home : AppCompatActivity() {
 
@@ -62,7 +60,7 @@ class Home : AppCompatActivity() {
 
     private fun configurarRecyclerView(recyclerView: RecyclerView, data: List<String>) {
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
-        recyclerView.adapter = LivroAdapter(data)
+        recyclerView.adapter = BookAdapter(this, data)
     }
 
 
