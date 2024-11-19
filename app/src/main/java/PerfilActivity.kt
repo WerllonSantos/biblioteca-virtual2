@@ -6,7 +6,6 @@ import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.bibliotecavirtual.databinding.ActivityPerfilBinding
@@ -44,7 +43,7 @@ class PerfilActivity : AppCompatActivity() {
         }
 
         // Configura o botão de logout
-        binding.buttonLogout.setOnClickListener {
+        binding.buttonSair.setOnClickListener {
             logoutUser()
         }
     }
@@ -58,14 +57,14 @@ class PerfilActivity : AppCompatActivity() {
                 if (document != null) {
                     val nome = document.getString("nome")
                     val email = document.getString("email")
-                    val telefone = document.getString("telefone")
+                    val celular = document.getString("celular")
 
                     // Exibe os dados no layout
                     binding.editName.setText(nome)
                     binding.editEmail.setText(email)
-                    binding.editPhone.setText(telefone)
+                    binding.editPhone.setText(celular)
 
-                    Log.d(TAG, "Dados do usuário: $nome, $email, $telefone")
+                    Log.d(TAG, "Dados do usuário: $nome, $email, $celular")
                 } else {
                     Log.d(TAG, "Usuário não encontrado")
                 }
@@ -80,12 +79,14 @@ class PerfilActivity : AppCompatActivity() {
     private fun salvarDados() {
         val nome = binding.editName.text.toString()
         val email = binding.editEmail.text.toString()
-        val telefone = binding.editPhone.text.toString()
+        val celular = binding.editPhone.text.toString()
+        val senha = binding.editSenha.text.toString()
 
         val userMap = hashMapOf(
             "nome" to nome,
             "email" to email,
-            "telefone" to telefone
+            "celular" to celular,
+            "senha" to senha
         )
 
         db.collection("users")
@@ -100,7 +101,6 @@ class PerfilActivity : AppCompatActivity() {
             }
     }
 
-    // Função para iniciar a captura da foto
     private fun dispatchTakePictureIntent() {
         Intent(MediaStore.ACTION_IMAGE_CAPTURE).also { takePictureIntent ->
             takePictureIntent.resolveActivity(packageManager)?.also {
