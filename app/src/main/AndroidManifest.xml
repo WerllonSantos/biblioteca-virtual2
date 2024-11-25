@@ -26,6 +26,14 @@
         android:theme="@style/Theme.BibliotecaVirtual"
         tools:targetApi="31">
         <activity
+            android:name=".item_favorite"
+            android:exported="false"
+            android:theme="@style/Theme.BibliotecaVirtual" />
+        <activity
+            android:name=".Favoritos"
+            android:exported="false"
+            android:theme="@style/Theme.BibliotecaVirtual" />
+        <activity
             android:name=".activity_book_detail"
             android:exported="false"
             android:theme="@style/Theme.BibliotecaVirtual" />
