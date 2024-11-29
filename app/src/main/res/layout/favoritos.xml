@@ -5,37 +5,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".FavoritosFragment">
+    tools:context=".FavoritosActivity">
 
-    <!-- Título e aba de navegação -->
+    <!-- Header com o título e o botão de adicionar -->
     <LinearLayout
         android:id="@+id/header"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:background="#f47c74">
+        android:background="#f47c74"
+        android:padding="16dp">
 
+        <!-- Título "Favoritos" -->
         <TextView
             android:id="@+id/tvTitulo"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="16dp"
             android:text="@string/Favoritos"
             android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:layout_weight="1"/>
 
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tabLayout"
-            android:layout_width="match_parent"
+
+        <ImageButton
+            android:id="@+id/btnAdicionarLista"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:tabIndicatorColor="@android:color/white"
-            app:tabSelectedTextColor="@android:color/white"
-            app:tabTextColor="@android:color/darker_gray" />
+            android:src="@drawable/ic_add"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Adicionar Lista"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 
@@ -75,7 +80,6 @@
             android:layout_marginTop="16dp"
             android:backgroundTint="#f47c74"
             android:text="Adicionar favoritos" />
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

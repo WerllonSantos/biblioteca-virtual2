@@ -5,11 +5,14 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.view.MenuItem
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.bibliotecavirtual.R.id.btnAdicionar
+import com.google.android.ads.mediationtestsuite.activities.HomeActivity
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -23,30 +26,32 @@ class Home : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-
         fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
-
 
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.bottom_navigation)
 
-
-        bottomNavigationView.setOnNavigationItemSelectedListener { item: MenuItem ->
+        // Ajuste na navegação do BottomNavigation
+        bottomNavigationView.setOnItemSelectedListener { item: MenuItem ->
             when (item.itemId) {
                 R.id.navigation_perfil -> {
-
                     val intent = Intent(this@Home, PerfilActivity::class.java)
                     startActivity(intent)
                     true
                 }
-
                 else -> false
             }
         }
 
 
-        checkLocationPermission()
-  }
+        val btnAdicionar = findViewById<Button>(btnAdicionar)
+        btnAdicionar.setOnClickListener {
 
+            val intent = Intent(this, HomeActivity::class.java) // Substitua por sua Activity de criação de lista ou algo relacionado
+            startActivity(intent)
+        }
+
+        checkLocationPermission()
+    }
 
     private fun checkLocationPermission() {
         if (ActivityCompat.checkSelfPermission(
@@ -61,11 +66,9 @@ class Home : AppCompatActivity() {
                 LOCATION_PERMISSION_REQUEST_CODE
             )
         } else {
-
             getLocation()
         }
     }
-
 
     private fun getLocation() {
         if (ActivityCompat.checkSelfPermission(
@@ -76,13 +79,6 @@ class Home : AppCompatActivity() {
                 Manifest.permission.ACCESS_COARSE_LOCATION
             ) != PackageManager.PERMISSION_GRANTED
         ) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
             return
         }
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
@@ -96,7 +92,7 @@ class Home : AppCompatActivity() {
         }
     }
 
-
+    // Método para lidar com o resultado da solicitação de permissão
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,
@@ -105,10 +101,8 @@ class Home : AppCompatActivity() {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
             if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
-
                 getLocation()
             } else {
-
                 Toast.makeText(this, "Permissão de localização negada", Toast.LENGTH_LONG).show()
             }
         }

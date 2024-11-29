@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".CriarLista">
+
+        <TextView
+            android:id="@+id/tv_nome_lista"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:text="Nome da lista"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.035"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/edt_nome_lista"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="#F5F5F5"
+            android:hint="Digite o nome da lista"
+            android:maxLength="255"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_margin="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nome_lista" />
+
+        <TextView
+            android:id="@+id/tv_contador_nome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="end"
+            android:text="0/255"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_margin="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/edt_nome_lista" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Adicione uma descrição à lista (opcional)"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_margin="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_contador_nome"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <EditText
+            android:id="@+id/edt_descricao_lista"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:background="#F5F5F5"
+            android:gravity="top|start"
+            android:hint="Digite uma descrição"
+            android:inputType="textMultiLine"
+            android:maxLength="300"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_margin="8dp"
+            tools:layout_editor_absoluteY="216dp"
+            tools:ignore="MissingConstraints" />
+
+
+        <TextView
+            android:id="@+id/tv_contador_descricao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="end"
+            android:text="0/300"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_cancelar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_margin="4dp"
+            app:layout_constraintTop_toBottomOf="@+id/edt_descricao_lista"
+            app:layout_constraintVertical_bias="0.081" />
+
+        <Button
+            android:id="@+id/btn_salvar"
+            android:layout_width="148dp"
+            android:layout_height="54dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="136dp"
+            android:layout_weight="1"
+            android:backgroundTint="#f47c74"
+            android:padding="10dp"
+            android:text="Salvar"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btn_cancelar"
+            android:layout_width="128dp"
+            android:layout_height="53dp"
+            android:layout_marginBottom="136dp"
+            android:layout_weight="1"
+            android:backgroundTint="#f47c74"
+            android:text="Cancelar"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_salvar"
+            app:layout_constraintHorizontal_bias="0.395"
+            app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
